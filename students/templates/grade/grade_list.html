@@ -1,0 +1,40 @@
+{% extends 'Students/base.html' %}
+
+
+{% block content %}
+{% if user.is_authenticated %} 
+<div class="container" style="margin-top: 70px; min-height: 600px;">
+    <h2>Grade List</h2>
+    <a href="{% url 'grade_create' %}" class="btn btn-primary mb-3">Add Grade</a>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Student</th>
+                <th>Subject</th>
+                <th>Grade</th>
+                <th>Date Assigned</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for grade in grades %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ grade.student.name }}</td>
+                <td>{{ grade.subject }}</td>
+                <td>{{ grade.grade }}</td>
+                <td>{{ grade.date_assigned }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="text-center">No grades found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  
+</div>
+{% else %}   
+<h3 class="text-danger m-2">You are not allow, Please Login In!</h3> <br> <br> <br> <br>
+{% endif %}
+{% endblock content %}

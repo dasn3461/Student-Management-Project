@@ -1,0 +1,36 @@
+{% extends 'Students/base.html' %}
+
+
+{% block content %}
+<div class="container" style="margin-top: 70px; min-height: 600px;">
+    <h1>Student Detail</h1>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Name:</strong> {{ student.name }}</li>
+        <li class="list-group-item"><strong>Roll Number:</strong> {{ student.roll_number }}</li>
+        <li class="list-group-item"><strong>Class:</strong> {{ student.student_class.name }}</li>
+        <li class="list-group-item"><strong>Email:</strong> {{ student.email }}</li>
+        <li class="list-group-item"><strong>Age:</strong> {{ student.age }}</li>
+        <li class="list-group-item"><strong>Enrollment Date:</strong> {{ student.enrollment_date }}</li>
+    </ul>
+    <br>
+    <a href="{% url 'student_list' %}" class="btn btn-secondary">Back to Student List</a>
+  
+</div>
+{% endblock content %}
+
+
+
+       
+   
+
+
+
+      
+  
+
+
+
+
+    
+        
+

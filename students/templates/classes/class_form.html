@@ -1,0 +1,26 @@
+{% extends 'Students/base.html' %}
+
+
+{% block content %}
+{% if user.is_authenticated %} 
+<div class="container" style="margin-top: 70px; min-height: 600px;">
+    <h1>{% if form.instance.pk %}Update{% else %}Create{% endif %} Class</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+    <br>
+    <a href="{% url 'class_list' %}" class="btn btn-secondary">Back to class list</a>
+</div>
+{% else %}   
+<h1 class="text-danger">You are not allow, Please Login In!</h1>
+{% endif %}
+
+
+
+{% endblock content %}

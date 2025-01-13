@@ -1,0 +1,89 @@
+{% extends 'Students/base.html' %}
+{% block title %}
+  Home
+{% endblock title %}
+
+{% block content %}
+
+ <!-- Main Content -->
+<div class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <h1 class="display-4">Welcome to the Student Management System</h1>
+            <p class="lead">Manage Students, Teachers, Attendance, Grades, and Enrollments</p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4 text-center">
+            <div class="card">
+                <div class="card-body">
+                    <h3><i class="fa fa-graduation-cap"></i></h3>
+                    <h5>Students</h5>
+                    <p>View and manage students in the system.</p>
+                    <a href="{% url 'student_list' %}" class="btn btn-primary">View Students</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="card">
+                <div class="card-body">
+                    <h3><i class="fa fa-chalkboard-teacher"></i></h3>
+                    <h5>Teachers</h5>
+                    <p>View and manage teachers in the system.</p>
+                    <a href="{% url 'teacher_list' %}" class="btn btn-primary">View Teachers</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="card">
+                <div class="card-body">
+                    <h3><i class="fa fa-pencil-alt"></i></h3>
+                    <h5>Grades</h5>
+                    <p>Assign and manage grades for students.</p>
+                    <a href="{% url 'grade_list' %}" class="btn btn-primary">View Grades</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-4 text-center">
+            <div class="card">
+                <div class="card-body">
+                    <h3><i class="fa fa-calendar-check"></i></h3>
+                    <h5>Attendance</h5>
+                    <p>Track and manage student attendance.</p>
+                    <a href="{% url 'attendance_list' %}" class="btn btn-primary">View Attendance</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="card">
+                <div class="card-body">
+                    <h3><i class="fa fa-clipboard"></i></h3>
+                    <h5>Enrollments</h5>
+                    <p>Manage student enrollments in classes.</p>
+                    <a href="{% url 'enrollment_list' %}" class="btn btn-primary">View Enrollments</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 text-center">
+            <div class="card">
+                <div class="card-body">
+                    <h3><i class="fa fa-chalkboard"></i></h3>
+                    <h5>Classes</h5>
+                    <p>View and manage classes in the system.</p>
+                    <a href="{% url 'class_list' %}" class="btn btn-primary">View Classes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+
+
+
+
+{% endblock content %}

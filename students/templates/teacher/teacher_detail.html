@@ -1,0 +1,43 @@
+{% extends 'Students/base.html' %}
+
+
+{% block content %}
+<div class="container" style="margin-top: 70px; min-height: 600px;">
+    <h1>Teacher Details: {{ teacher.name }}</h1>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Teacher Information</h5>
+                <p><strong>Email:</strong> {{ teacher.email }}</p>
+                <p><strong>Phone:</strong> {{ teacher.phone }}</p>
+                <p><strong>Assigned Class:</strong> {% if teacher.assigned_class %}{{ teacher.assigned_class.name }}{% else %}Not assigned{% endif %}</p>
+            </div>
+        </div>
+        <br>
+        <a href="{% url 'teacher_list' %}" class="btn btn-secondary">Back to teacher list</a>
+  
+</div>
+{% endblock content %}
+
+
+        
+    
+
+
+        
+   
+        
+  
+
+
+
+
+
+      
+  
+
+
+
+
+    
+        
+

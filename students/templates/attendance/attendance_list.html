@@ -1,0 +1,37 @@
+{% extends 'Students/base.html' %}
+
+
+{% block content %}
+{% if user.is_authenticated %} 
+<div class="container" style="margin-top: 70px; min-height: 600px;">
+    <h1>Attendance Records</h1>
+    <a href="{% url 'attendance_create' %}" class="btn btn-primary mb-3">Add Attendance</a>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Student</th>
+          <th scope="col">Date</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in attendance_records %}
+          <tr>
+            <td>{{ record.student.name }}</td>
+            <td>{{ record.date }}</td>
+            <td>{{ record.get_status_display }}</td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="3" class="text-center">No attendance records found.</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  
+</div>
+
+{% else %}   
+<h3 class="text-danger m-2">You are not allow, Please Login In!</h3> <br> <br> <br> <br>
+{% endif %}
+{% endblock content %}

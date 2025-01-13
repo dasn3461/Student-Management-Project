@@ -1,0 +1,39 @@
+{% extends 'Students/base.html' %}
+
+
+{% block content %}
+{% if user.is_authenticated %} 
+<div class="container" style="margin-top: 70px; min-height: 600px;">
+    <h1>Teacher List</h1>
+        <div class="list-group">
+            {% for teacher in teachers %}
+                <a href="{% url 'teacher_detail' teacher.pk %}" class="list-group-item list-group-item-action">
+                    {{ teacher.name }} (Email: {{ teacher.email }})
+                </a>
+            {% endfor %}
+        </div>
+        <br>
+        <a href="{% url 'teacher_create' %}" class="btn btn-primary">Create a new teacher</a>
+</div>
+{% else %}   
+<h3 class="text-danger m-2">You are not allow, Please Login In!</h3> <br> <br> <br> <br>
+{% endif %}
+{% endblock content %}
+
+
+
+        
+   
+
+
+
+
+      
+  
+
+
+
+
+    
+        
+

@@ -1,0 +1,49 @@
+{% extends 'Students/base.html' %}
+
+
+{% block content %}
+{% if user.is_authenticated %} 
+<div class="container" style="margin-top: 70px; min-height: 600px;">
+    <h1>Student List</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Roll Number</th>
+                <th>Class</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.roll_number }}</td>
+                <td>{{ student.student_class.name }}</td>
+                <td>{{ student.email }}</td>
+                <td>
+                    <a href="{% url 'student_detail' student.pk %}" class="btn btn-info btn-sm">View</a>
+                    <a href="{% url 'student_create' %}" class="btn btn-primary btn-sm">Add</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'student_create' %}" class="btn btn-success">Add New Student</a>
+</div>
+{% else %}   
+<h3 class="text-danger m-2">You are not allow, Please Login In!</h3> <br> <br> <br> <br>
+{% endif %}
+
+
+
+{% endblock content %}
+
+
+
+    
+        
+
